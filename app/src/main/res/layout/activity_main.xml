@@ -15,7 +15,10 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to CS371" />
+            android:text="Happy Birthday!"
+            android:textColor="#FF9800"
+            android:textColorLink="#FFFFFF"
+            android:textSize="60dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,10 +47,16 @@
             android:text="HOORAY!!" />
 
         <Button
+            android:id="@+id/Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frosting" />
+
+        <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="yay..." />
+            android:text="Yay" />
 
     </LinearLayout>
 </LinearLayout>
