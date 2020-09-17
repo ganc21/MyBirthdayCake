@@ -4,13 +4,15 @@ package cs301.birthdaycake;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.SeekBar;
 
 /*
 - This class is strictly data-containing
 - info on current state of the cake
 - Lab3
  */
-public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener  {
+public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
+        SeekBar.OnSeekBarChangeListener  {
 
     private CakeView cakeView = null;  // reference to the cakeview object
     private CakeModel cakeModel = null; //  reference to the CakeModel object
@@ -32,7 +34,7 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     @Override // for the Switches
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        Log.d("CandlesSwitch", "No Candles");
+        Log.d("CandlesSwitch", "Candles");
 
         /* to switch off the view of candles */
         if (cakeModel.hasCandles == true) {
@@ -43,5 +45,21 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
             cakeView.invalidate();
         }
 
+    }
+
+    @Override // for the seekbar to determine num candles
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        Log.d("candleNumSeekbar", "Sigbar");
+
+        cakeModel.numCandles = progress;
+        cakeView.invalidate();
+
+    }
+
+    @Override // don't care for this
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
+    @Override // don't care for this
+    public void onStopTrackingTouch(SeekBar seekBar) {
     }
 }

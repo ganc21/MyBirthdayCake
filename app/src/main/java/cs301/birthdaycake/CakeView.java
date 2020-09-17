@@ -97,6 +97,8 @@ public class CakeView extends SurfaceView {
 
 
 
+
+
     }
 
     /**
@@ -133,9 +135,17 @@ public class CakeView extends SurfaceView {
 
         //Now a candle in the center
         if (model.hasCandles == true) {
-            drawCandle(canvas, cakeLeft + cakeWidth/2 - candleWidth/2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop);
+
+            for (int i = 0; i < model.numCandles; i++) {
+                drawCandle(canvas, cakeLeft*i + cakeWidth/2, cakeTop);
+                // cakeLeft + ((i+1) * cakeWidth / (cakeModel.numCandles + 1) - candleWidth / 2, cakeTop <-- partner code
+            }
+            //i*cakeWidth/model.numCandles
+            //drawCandle(canvas, cakeLeft + cakeWidth/2 - candleWidth/2, cakeTop); <-- OG code
+            //drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop); <-- OG code
         }
+
+
 
 
 

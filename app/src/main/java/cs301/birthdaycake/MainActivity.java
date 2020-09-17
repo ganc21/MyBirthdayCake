@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
           //Log.i("button", "Goodbye");
         //}
 
+        // to blow out the candles
         Button blowOut = findViewById(R.id.blowOut);
         blowOut.setOnClickListener(cakeController);
 
+        // to draw the candles or not
         Switch onOffCandles = findViewById(R.id.CandlesSwitch);
         onOffCandles.setOnCheckedChangeListener(cakeController);
+
+        // to draw the number of candles
+        SeekBar numCandles = findViewById(R.id.candleNumSeekBar);
+        numCandles.setOnSeekBarChangeListener(cakeController);
     }
 
 }
