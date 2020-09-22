@@ -5,4 +5,6 @@ public class CakeModel {
     public int numCandles = 2;  // number of candles on the cake
     public boolean hasFrosting = true;  // indicates whether cake has frosting or not
     public boolean hasCandles = true;   // indicates whether cake has candles or not
+    public float xCoord;
+    public float yCoord;
 }
