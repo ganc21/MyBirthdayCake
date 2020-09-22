@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         // to draw the number of candles
         SeekBar numCandles = findViewById(R.id.candleNumSeekBar);
         numCandles.setOnSeekBarChangeListener(cakeController);
+
+        // to report the x,y coordinates of where a touch occurs
     }
 
 }

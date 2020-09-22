@@ -145,6 +145,10 @@ public class CakeView extends SurfaceView {
             //drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop); <-- OG code
         }
 
+        /* Lab 4*/
+        //int textSizeHere = Paint.setTextSize(25);
+        //canvas.drawText( model.xCoord + model.yCoord,  23,  23, textSizeHere);
+
 
 
 
@@ -157,6 +161,8 @@ public class CakeView extends SurfaceView {
         return model;
     }
 
-    /* */
+    /* Lab 4 */
+
+    //Paint.setTextSize();
 }//class CakeView
 
