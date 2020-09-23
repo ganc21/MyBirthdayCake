@@ -21,6 +21,7 @@ public class CakeView extends SurfaceView {
     Paint checkerPaint2 = new Paint();
 
     Paint redPaint = new Paint();
+    Paint balloonPaint = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -57,7 +58,7 @@ public class CakeView extends SurfaceView {
         setWillNotDraw(false);
 
         //Setup our palette
-        cakePaint.setColor(0xFF9FFFF3);  //violet-red
+        cakePaint.setColor(0xFFC755B5);  //violet-red
         cakePaint.setStyle(Paint.Style.FILL);
         frostingPaint.setColor(0xFFFFFACD);  //pale yellow
         frostingPaint.setStyle(Paint.Style.FILL);
@@ -74,6 +75,8 @@ public class CakeView extends SurfaceView {
         redPaint.setColor(Color.RED); // red color
         redPaint.setTextSize(32f);  // size of what is being written in red
 
+        balloonPaint.setColor(Color.BLUE);
+        balloonPaint.setStyle(Paint.Style.FILL);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -103,10 +106,12 @@ public class CakeView extends SurfaceView {
         float wickLeft = left + candleWidth/2 - wickWidth/2;
         float wickTop = bottom - wickHeight - candleHeight;
         canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
+    }
 
+    public void drawBalloon(Canvas canvas, float X, float Y){
 
-
-
+        canvas.drawOval(X-40, Y-60, X+40,Y+60, balloonPaint);//Draw balloon
+        canvas.drawRect(X-10, Y+60, X+10,Y+65, balloonPaint);
 
     }
 
@@ -154,6 +159,9 @@ public class CakeView extends SurfaceView {
             //drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop); <-- OG code
         }
 
+        if (model.hasTouched) {
+            drawBalloon(canvas, model.xCoord, model.yCoord);
+        }
         if(model.hasTouched == true){
             checkers(canvas, model.xCoord, model.yCoord);
         }
