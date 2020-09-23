@@ -20,6 +20,8 @@ public class CakeView extends SurfaceView {
     Paint checkerPaint1 = new Paint();
     Paint checkerPaint2 = new Paint();
 
+    Paint redPaint = new Paint();
+
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
         and adapting to different tablets' screen sizes and resolutions.  I've deliberately
@@ -69,6 +71,9 @@ public class CakeView extends SurfaceView {
         wickPaint.setStyle(Paint.Style.FILL);
         checkerPaint1.setColor(0xFFC1FFAC); //light green
         checkerPaint2.setColor(0xFFFFACF2); //light pink
+        redPaint.setColor(Color.RED); // red color
+        redPaint.setTextSize(32f);  // size of what is being written in red
+
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -149,9 +154,20 @@ public class CakeView extends SurfaceView {
             //drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop); <-- OG code
         }
 
-        if(model.isTouched == true){
-            checkers(canvas, model.xLocation, model.yLocation);
+        if(model.hasTouched == true){
+            checkers(canvas, model.xCoord, model.yCoord);
         }
+
+        // Person A: Draw the information of the x,y coord in the lower-righthand corner of CakeView canvas in red large text
+
+        if(model.hasTouched == true) {
+            canvas.drawText("(" + (int)model.xCoord + ", " + (int)model.yCoord + ")", 1500f, 540f, redPaint);
+        }
+
+        //canvas.drawText()
+
+
+
 
 
     }//onDraw

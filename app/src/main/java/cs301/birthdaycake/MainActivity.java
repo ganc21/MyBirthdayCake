@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
         SeekBar numCandles = findViewById(R.id.candleNumSeekBar);
         numCandles.setOnSeekBarChangeListener(cakeController);
 
+        // listener object for touch touch events
+        //MotionEvent touchHere =
         cakeView.setOnTouchListener(cakeController);
+
+
     }
 
 }
