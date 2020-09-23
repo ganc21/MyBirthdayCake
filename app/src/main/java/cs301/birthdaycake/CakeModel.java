@@ -7,4 +7,6 @@ public class CakeModel {
     public boolean hasCandles = true;   // indicates whether cake has candles or not
     public float xCoord;
     public float yCoord;
+    public boolean isTouched = false;
+
 }

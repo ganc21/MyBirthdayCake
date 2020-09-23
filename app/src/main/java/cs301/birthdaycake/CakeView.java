@@ -101,9 +101,8 @@ public class CakeView extends SurfaceView {
 
     public void drawBalloon(Canvas canvas, float X, float Y){
 
-
-        canvas.drawOval();//Draw balloon
-
+        canvas.drawOval(X-40, Y-60, X+40,Y+60, balloonPaint);//Draw balloon
+        canvas.drawRect(X-10, Y+60, X+10,Y+65, balloonPaint);
 
     }
 
@@ -151,8 +150,9 @@ public class CakeView extends SurfaceView {
             //drawCandle(canvas, cakeLeft + cakeWidth - candleWidth/2 - 50, cakeTop); <-- OG code
         }
 
-
-
+        if (model.isTouched) {
+            drawBalloon(canvas, model.xCoord, model.yCoord);
+        }
 
 
     }//onDraw

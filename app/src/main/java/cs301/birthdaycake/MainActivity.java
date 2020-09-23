@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         // to draw the number of candles
         SeekBar numCandles = findViewById(R.id.candleNumSeekBar);
         numCandles.setOnSeekBarChangeListener(cakeController);
+
+
+        cakeView.setOnTouchListener(cakeController);
     }
 
 }
