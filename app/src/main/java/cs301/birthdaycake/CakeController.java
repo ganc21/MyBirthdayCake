@@ -13,7 +13,7 @@ import android.widget.SeekBar;
 - Lab3
  */
 public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
-        SeekBar.OnSeekBarChangeListener, View.OnTouchListener  {
+        SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
 
     private CakeView cakeView = null;  // reference to the cakeview object
     private CakeModel cakeModel = null; //  reference to the CakeModel object
@@ -66,10 +66,11 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     @Override // to report x,y location of where touch occurs
     public boolean onTouch(View v, MotionEvent event) {
-        float x = event.getX(); // x coordinate
-        float y = event.getY(); // y coordinate
-        cakeModel.xCoord = x;   // assigns that to the cake model variable
-        cakeModel.yCoord = y;   // assigns that to the cake model variable
+        cakeModel.xCoord = event.getX(); // x coordinate
+        cakeModel.yCoord = event.getY(); // y coordinate
+
+        cakeModel.hasTouched = true;
+        cakeView.invalidate();  // redraws
         return false;
     }
 }

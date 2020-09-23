@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
         // to draw the number of candles
         SeekBar numCandles = findViewById(R.id.candleNumSeekBar);
         numCandles.setOnSeekBarChangeListener(cakeController);
+
+        // listener object for touch touch events
+        //MotionEvent touchHere =
+        cakeView.setOnTouchListener(cakeController);
+
+
     }
 
 }
